@@ -1,0 +1,19 @@
+.project-codes-page-container {
+    
+    .project-codes-list {
+
+        margin-top: 1.2rem;
+
+        .project-codes-header {
+            font-weight: 800;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin-bottom: 1.2rem;
+        }
+
+        .project-code {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}

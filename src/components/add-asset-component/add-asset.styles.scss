@@ -1,0 +1,49 @@
+.add-asset-component-container {
+    position: absolute;
+    height: 92vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+        .add-asset-component {
+
+            z-index: 1000;
+
+            .add-asset-form {
+
+                display: flex;
+                flex-direction: column;
+                background-color: rgb(224, 224, 224);
+                padding: 1.1rem 1.5rem;
+                row-gap: .5rem;
+
+                .add-asset-title {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .close-cross-icon {
+                    font-size: 1.5rem;
+                    display: flex;
+                    justify-content: end;
+                    cursor: pointer;
+                }
+
+                .input-detail {
+
+                }
+
+            }
+        }
+}
+
+.background {
+    height: 92vh;
+    width: 100vw;
+    z-index: 50;
+    position: absolute;
+    background: #818181;
+    opacity: .8;
+}

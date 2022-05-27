@@ -1,0 +1,20 @@
+.request-list-page-container {
+    .request-list {
+        margin-top: 1.2rem;
+
+        .request-list-header {
+            display: grid;
+            font-weight: 800;
+            grid-template-columns: repeat(7, 1fr);
+            margin-bottom: 1.2rem;
+        }
+
+        .request{
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            .request-list-actions-container {
+                
+            }
+        }
+    }
+}

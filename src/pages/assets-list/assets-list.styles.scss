@@ -1,0 +1,16 @@
+.assets-list-page-container {
+
+    .assets-list {
+        margin-top: .5rem;
+        .asset-header {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            font-weight: 800;
+        }
+
+        .asset {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+}
