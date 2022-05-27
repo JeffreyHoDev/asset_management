@@ -8,6 +8,12 @@ import AddToCartComponent from '../../components/add-to-cart-component/add-to-ca
 const RequestItemsPage = () => {
 
     const { cartItems, passItemToRequestItemComponent } = useContext(RequestItemsContext)
+    const [project, setProject] = useState("")
+
+    const checkOutHandler = () => {
+        
+    }
+
     return (
         <>
             <AddToCartComponent />

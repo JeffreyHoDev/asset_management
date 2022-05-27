@@ -8,7 +8,7 @@ const AddToCartComponent = () => {
     const [addedCartItem, setAddedCartItem] = useState(addCartItem)
 
     const requestQuantityHandler = (event) => {
-        const cartItemToAdd = {...addCartItem, "request_quantity": event.target.value}
+        const cartItemToAdd = {...addCartItem, "request_quantity": parseInt(event.target.value)}
         setAddedCartItem(cartItemToAdd)
     }
 
