@@ -10,8 +10,25 @@ export const RequestItemsContext = createContext({
 
 export const addItemToCart = (cartItems, item) => {
     let newCartItems = []
-    newCartItems = cartItems.concat(item)
-    return newCartItems
+    const existItem = cartItems.find(cartItem => cartItem.name === item.name)
+    if(existItem) {
+        return cartItems.map(cartItem => {
+            if(cartItem.name === item.name) {
+                cartItem.request_quantity = item.request_quantity
+                return cartItem
+            }
+        })
+    }
+    else {
+        newCartItems = cartItems.concat(item)
+        return newCartItems
+    }
+}
+
+export const removeItemFromCart = (cartItems, item) => {
+    return cartItems.filter(cartItem => {
+        return cartItem.name !== item.name
+    })
 }
 
 
@@ -35,7 +52,12 @@ export const RequestItemsProvider = ({children}) => {
         toogleShowRequestItemComponent(!showRequestItem)
     }
 
-    const value = { cartItems, addItemToCartHandler, toogleHandler,addCartItem, showRequestItem, passItemToRequestItemComponent }
+    const removeItemFromCartsHandler = (itemToBeRemoved) => {
+        
+        setCartItems(removeItemFromCart(cartItems, itemToBeRemoved))
+    }
+
+    const value = { cartItems, addItemToCartHandler, toogleHandler,addCartItem, showRequestItem, passItemToRequestItemComponent, removeItemFromCartsHandler }
 
     return (
         <RequestItemsContext.Provider value={value}>{children}</RequestItemsContext.Provider>

@@ -4,21 +4,28 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter } from "react-router-dom";
+
 
 import { AssetsProvider } from './contexts/assets.context'
 import { ProjectsProvider } from './contexts/projects.context'
 import { RequestItemsProvider } from './contexts/request-items.context'
+import { RequestListProvider } from './contexts/request-list.context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProjectsProvider>
-      <AssetsProvider>
-        <RequestItemsProvider>
-          <App />
-        </RequestItemsProvider>
-      </AssetsProvider>
-    </ProjectsProvider>
+    <BrowserRouter>
+      <ProjectsProvider>
+        <AssetsProvider>
+          <RequestListProvider>
+            <RequestItemsProvider>
+              <App />
+            </RequestItemsProvider>
+          </RequestListProvider>
+        </AssetsProvider>
+      </ProjectsProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

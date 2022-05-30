@@ -29,20 +29,32 @@
             }
         }
     }
-}
 
-.cart-items-container {
-    .cart-items-list {
-        .cart-header {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+    .cart-items-container {
+
+        .cart-items-list {
+            .cart-header {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
         }
-        .cart-item {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+        .request-extra-info-container {
+            display: flex;
+            flex-direction: column;
+
+            input, select {
+                text-align: center;
+                align-self: center;
+                
+            }
+            
         }
     }
 }
+
+
 
 .request-extra-info-container {
     margin-top: 1.5rem;

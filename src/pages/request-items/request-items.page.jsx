@@ -4,14 +4,20 @@ import ITEM_LIST from '../../custom-data/item-list'
 import { useContext, useState } from 'react'
 import { RequestItemsContext } from '../../contexts/request-items.context'
 import AddToCartComponent from '../../components/add-to-cart-component/add-to-cart.component'
+import CartItems from '../../components/cart-items/cart-items.component'
 
 const RequestItemsPage = () => {
 
-    const { cartItems, passItemToRequestItemComponent } = useContext(RequestItemsContext)
+    const { cartItems, passItemToRequestItemComponent, removeItemFromCartsHandler } = useContext(RequestItemsContext)
     const [project, setProject] = useState("")
 
     const checkOutHandler = () => {
-        
+        if(cartItems.length === 0) {
+            alert("You need to at least have one item in cart")
+
+        }else {
+            console.log("Submitted")
+        }
     }
 
     return (
@@ -45,31 +51,19 @@ const RequestItemsPage = () => {
                             <span>Quantity</span>
                             <span>Action</span>
                         </div>
-                        {
-                            cartItems.length > 0 ? 
-                            (                            
-                                cartItems.map((item, idx) => {
-                                    return (
-                                        <div className='cart-item' key={idx}>
-                                            <span>{item.name}</span>
-                                            <span>{item.request_quantity}</span>
-                                            <span>&#10539;</span>
-                                        </div>
-                                    )
-                                })                          
-                            ): <h3>No Items Added to Cart yet</h3>
-                        }
+                        <CartItems cartItems={cartItems} removeItemFromCartsHandler={removeItemFromCartsHandler}/>
 
                     </div>
                     <div className='request-extra-info-container'>
-                        <span>Project: </span>
-                        <select className='project-code-select'>
+                        <label htmlFor='project-codes'>Project: </label>
+                        <select name="project-codes" className='project-code-select'>
                             <option value="abc-project">ABC Project</option>
                             <option value="ccb-project">CCB Project</option>
                         </select>
-
+                        <label htmlFor='collection-date'>Collection Date: </label>
+                        <input type="date"></input>
                     </div>
-                    <button>Checkout</button>
+                    <button onClick={checkOutHandler}>Checkout</button>
                 </div>
             </div>
 
